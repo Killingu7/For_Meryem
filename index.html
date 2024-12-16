@@ -5,71 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random No Button</title>
     <link rel="stylesheet" href="style.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: whitesmoke;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #e94d58;
+            margin: 15px 0;
+        }
+
+        .gif {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn-group {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+        }
+
+        button {
+            width: 150px;
+            height: 40px;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 30px;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px gray;
+            border: 2px solid #e94d58;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        button.yes-btn {
+            background: #e94d58;
+        }
+
+        button.no-btn {
+            background: white;
+            color: #e94d58;
+        }
+    </style>
 </head>
-  <style>
-      * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: whitesmoke;
-}
-
-.wrapper {
-    position: relative; /* This allows absolutely positioned elements to be positioned within this element */
-    width: 100%;
-    max-width: 400px;
-    text-align: center; /* Center-align text and content */
-}
-
-h2 {
-    font-size: 2em;
-    color: #e94d58;
-    margin: 15px 0;
-}
-
-.gif {
-    width: 100%;
-    max-width: 300px;
-}
-
-.btn-group {
-    margin-top: 50px;
-    display: flex; /* Align buttons horizontally */
-    justify-content: center; /* Center the buttons */
-    position: relative; /* Ensure the group is positioned for absolute children */
-    width: 100%; /* Ensure the button group takes the full width */
-}
-
-button {
-    width: 150px;
-    height: 40px; /* Set a fixed height */
-    color: white;
-    font-size: 1.2em;
-    border-radius: 30px;
-    outline: none;
-    cursor: pointer;
-    box-shadow: 0 2px 4px gray;
-    border: 2px solid #e94d58;
-    margin: 0 10px; /* Add margin between buttons */
-    position: relative; /* Allow positioning relative to the group */
-}
-
-button.yes-btn {
-    background: #e94d58;
-}
-
-button.no-btn {
-    background: white;
-    color: #e94d58;
-}
-</style>
 <body>
     <div class="wrapper">
         <h2 class="question">Will you marry me?</h2>
@@ -79,31 +79,27 @@ button.no-btn {
             <button class="no-btn">No</button>
         </div>
     </div>
-   <script> 
-const yesBtn = document.querySelector(".yes-btn");
-const noBtn = document.querySelector(".no-btn");
-const question = document.querySelector(".question");
-const gif = document.querySelector(".gif");
+    <script>
+        const yesBtn = document.querySelector(".yes-btn");
+        const noBtn = document.querySelector(".no-btn");
+        const question = document.querySelector(".question");
+        const gif = document.querySelector(".gif");
 
-yesBtn.addEventListener("click", () => {
-    question.innerHTML = "Sorry, you got seized";
-    gif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDFsNW8yZGx5N3hpN3pqNW5mbWh6Y3c0bDJmajVwZ2JwZzcyNWwwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Xw6yFn7frR3Y4/giphy.webp";
-});
+        yesBtn.addEventListener("click", () => {
+            question.innerHTML = "Sorry, you got seized";
+            gif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDFsNW8yZGx5N3hpN3pqNW5mbWh6Y3c0bDJmajVwZ2JwZzcyNWwwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Xw6yFn7frR3Y4/giphy.webp";
+        });
 
-// Make the No button move randomly close to the Yes button on hover
-noBtn.addEventListener("mouseover", () => {
-    const yesBtnRect = yesBtn.getBoundingClientRect();
-    const noBtnRect = noBtn.getBoundingClientRect();
-    
-    const offsetX = Math.random() * 60 - 30; // Random offset between -30px and +30px on the x-axis
-    const offsetY = Math.random() * 60 - 30; // Random offset between -30px and +30px on the y-axis
-    
-    // Set new position for "No" button relative to the "Yes" button's position
-    noBtn.style.position = "absolute";
-    noBtn.style.left = `${yesBtnRect.left + offsetX}px`;
-    noBtn.style.top = `${yesBtnRect.top + offsetY}px`;
-});
-   </script>
+        // Make the No button move randomly close to the Yes button on hover
+        noBtn.addEventListener("mouseover", () => {
+            const yesBtnRect = yesBtn.getBoundingClientRect();
+            const offsetX = Math.random() * 60 - 30; // Random offset between -30px and +30px on the x-axis
+            const offsetY = Math.random() * 60 - 30; // Random offset between -30px and +30px on the y-axis
+
+            noBtn.style.position = "absolute";
+            noBtn.style.left = `${yesBtnRect.left + offsetX}px`;
+            noBtn.style.top = `${yesBtnRect.top + offsetY}px`;
+        });
+    </script>
 </body>
-  
 </html>
