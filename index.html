@@ -1,271 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tap once every day</title>
-  <style>
-    /* التنسيق الأساسي */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Caveat", cursive;
-      text-align: center;
-    }
-
-    body {
-      background: linear-gradient(135deg, #8e2de2, #4a00e0);
-      background-size: 200% 200%;
-      animation: backgroundMove 15s ease-in-out infinite;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: #ffffff;
-      position: relative;
-      flex-direction: column;
-    }
-
-    /* حركة خلفية متغيرة */
-    @keyframes backgroundMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* تنسيق العدّاد الزمني */
-    #countdown {
-      position: absolute;
-      top: 20px;
-      font-size: 1.2em;
-      color: #ffddc1;
-      font-weight: bold;
-      display: none; /* مخفي حتى يتم النقر على الزر */
-    }
-
-    /* الزينة المتحركة: دوائر وقلوب */
-    .floating-shape {
-      position: absolute;
-      opacity: 0.6;
-      animation: float 10s infinite ease-in-out;
-      pointer-events: none;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-20px) scale(1.1); }
-      100% { transform: translateY(0) scale(1); }
-    }
-
-    /* إعدادات وتوزيع الدوائر */
-    .circle1 {
-      width: 120px;
-      height: 120px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      top: 20%;
-      left: 10%;
-      animation-duration: 12s;
-    }
-
-    .circle2 {
-      width: 80px;
-      height: 80px;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      bottom: 30%;
-      left: 80%;
-      animation-duration: 15s;
-    }
-
-    .heart {
-      font-size: 2em;
-      color: rgba(255, 26, 141, 0.6);
-      bottom: 10%;
-      right: 15%;
-      animation-duration: 14s;
-    }
-
-    /* صندوق الاقتباس */
-    .quote-wrapper {
-      width: 90%;
-      max-width: 400px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(8px);
-      position: relative;
-      z-index: 2;
-    }
-
-    /* تنسيق العنوان */
-    .quote-heading h2 {
-      font-family: "Lucida Console", monospace;
-      font-weight: bold;
-      color: #ffffff;
-      font-size: 1.5em;
-      margin-bottom: 15px;
-    }
-
-    /* نص الاقتباس المخفي وتأثير الظهور */
-    .quote-text {
-      display: none;
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 0.5s ease;
-      background: linear-gradient(135deg, #ff0000, #ff00ee);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .quote-text.show {
-      display: inline-block;
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .quote-body {
-      background-color: rgba(255, 255, 255, 0.9);
-      color: #4a00e0;
-      padding: 20px;
-      border-radius: 10px;
-      font-size: 1.2em;
-      margin-bottom: 15px;
-    }
-
-    .icon-quote {
-      font-size: 1.3em;
-      color: #ff6b81;
-      margin-bottom: 10px;
-    }
-
-    /* زر الاقتباس */
-    .quote-buttons .btn button {
-      font-family: "Quickand", sans-serif;
-      background-color: #e0c3fc;
-      color: #434348;
-      padding: 12px 24px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-      border-radius: 10px;
-      transition: 0.4s;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .quote-buttons .btn button:hover {
-      background-color: #6a11cb;
-      color: white;
-      transform: scale(1.1);
-    }
-
-    /* تذييل */
-    .footer p {
-      font-family: "Monaco", monospace;
-      color: #ffffff;
-      font-size: 1em;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random No Button</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
+  <stayel>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: whitesmoke;
+}
+
+.wrapper {
+    position: relative; /* This allows absolutely positioned elements to be positioned within this element */
+    width: 100%;
+    max-width: 400px;
+    text-align: center; /* Center-align text and content */
+}
+
+h2 {
+    font-size: 2em;
+    color: #e94d58;
+    margin: 15px 0;
+}
+
+.gif {
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-group {
+    margin-top: 50px;
+    display: flex; /* Align buttons horizontally */
+    justify-content: center; /* Center the buttons */
+    position: relative; /* Ensure the group is positioned for absolute children */
+    width: 100%; /* Ensure the button group takes the full width */
+}
+
+button {
+    width: 150px;
+    height: 40px; /* Set a fixed height */
+    color: white;
+    font-size: 1.2em;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px gray;
+    border: 2px solid #e94d58;
+    margin: 0 10px; /* Add margin between buttons */
+    position: relative; /* Allow positioning relative to the group */
+}
+
+button.yes-btn {
+    background: #e94d58;
+}
+
+button.no-btn {
+    background: white;
+    color: #e94d58;
+}
+</stayel>
 <body>
-
-  <!-- العدّاد الزمني -->
-  <div id="countdown">Time remaining: <span id="time-left">24:00:00</span></div>
-
-  <!-- الزينة المتحركة: دوائر وقلوب -->
-  <div class="floating-shape circle1"></div>
-  <div class="floating-shape circle2"></div>
-  <div class="floating-shape heart">❤</div>
-
-  <!-- محتوى الاقتباس -->
-  <div class="quote-wrapper">
-    <div class="quote-heading">
-      <h2>Click once every day</h2>
-    </div>
-
-    <div class="quote-body">
-      <div class="icon-quote">
-        <i class="fas fa-quote-left"></i>
-        <!-- نص الاقتباس مخفي افتراضيًا -->
-        <span class="quote-text">You look great today.</span>
-      </div>
-      <div class="quote-buttons">
-        <div class="btn">
-          <button id="quote-btn">Click to brighten your day!</button>
+    <div class="wrapper">
+        <h2 class="question">Will you marry me?</h2>
+        <img class="gif" alt="gif" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2w0aDZtZm50bzJxancyOXNpdXJzd2N5Y3IxNTQ0ZnppYnVuOWlmcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4V3RuU0zSq1SC8Hh4x/200w.webp" />
+        <div class="btn-group">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
         </div>
-      </div>
     </div>
+   <script> 
+const yesBtn = document.querySelector(".yes-btn");
+const noBtn = document.querySelector(".no-btn");
+const question = document.querySelector(".question");
+const gif = document.querySelector(".gif");
+
+yesBtn.addEventListener("click", () => {
+    question.innerHTML = "Sorry, you got seized";
+    gif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDFsNW8yZGx5N3hpN3pqNW5mbWh6Y3c0bDJmajVwZ2JwZzcyNWwwZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Xw6yFn7frR3Y4/giphy.webp";
+});
+
+// Make the No button move randomly close to the Yes button on hover
+noBtn.addEventListener("mouseover", () => {
+    const yesBtnRect = yesBtn.getBoundingClientRect();
+    const noBtnRect = noBtn.getBoundingClientRect();
     
-    <div class="footer">
-      <p>You are always beautiful 💗</p>
-    </div>
-  </div>
-
-  <!-- مكتبة Font Awesome لأيقونات الاقتباسات -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <!-- JavaScript للعدّاد الزمني وإظهار الاقتباس -->
-  <script>
-    const quotes = [
-      "You have a heart of gold.",
-      "Your kindness is inspiring.",
-      "You make the world a better place.",
-      "You are truly one of a kind.",
-      "Your smile lights up the world.",
-      "You are a breath of fresh air.",
-      "You have a beautiful soul.",
-      "Your presence brings joy to everyone.",
-      "You are a treasure to cherish.",
-      "You radiate positivity.",
-      "You are an absolute gem.",
-      "Your laughter is music to the ears.",
-      "You are a gift to the people around you.",
-      "I like your smile.",
-      "You are a wonderful friend.",
-      "You are like sunshine on a rainy day."
-    ];
-
-    const quoteBtn = document.getElementById("quote-btn");
-    const quoteText = document.querySelector(".quote-text");
-    const countdown = document.getElementById("countdown");
-    const timeLeftDisplay = document.getElementById("time-left");
-
-    let countdownInterval;
-
-    // وظيفة لبدء العد التنازلي
-    function startCountdown(duration) {
-      clearInterval(countdownInterval); // إيقاف أي عداد سابق
-      let timeRemaining = duration;
-
-      countdown.style.display = "block"; // إظهار العدّاد عند بدء العد التنازلي
-
-      countdownInterval = setInterval(() => {
-        const hours = Math.floor(timeRemaining / 3600);
-        const minutes = Math.floor((timeRemaining % 3600) / 60);
-        const seconds = timeRemaining % 60;
-
-        timeLeftDisplay.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
-        if (timeRemaining === 0) {
-          clearInterval(countdownInterval);
-          alert("Time's up! Come back tomorrow.");
-        }
-
-        timeRemaining--;
-      }, 1000);
-    }
-
-    // عند النقر على زر الاقتباس
-    quoteBtn.addEventListener("click", () => {
-      let random = Math.floor(Math.random() * quotes.length);
-      quoteText.textContent = quotes[random];
-      quoteText.classList.add("show"); // إضافة تنسيق الظهور الجميل
-      startCountdown(86400); // بدء العد التنازلي من 24 ساعة (86400 ثانية)
-    });
-  </script>
+    const offsetX = Math.random() * 60 - 30; // Random offset between -30px and +30px on the x-axis
+    const offsetY = Math.random() * 60 - 30; // Random offset between -30px and +30px on the y-axis
+    
+    // Set new position for "No" button relative to the "Yes" button's position
+    noBtn.style.position = "absolute";
+    noBtn.style.left = `${yesBtnRect.left + offsetX}px`;
+    noBtn.style.top = `${yesBtnRect.top + offsetY}px`;
+});
+   </script>
 </body>
-</html>                                                                                                                                     
+  
+</html>
